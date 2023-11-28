@@ -83,7 +83,7 @@ SOFTWARE.
                 <version>2.22.2</version>
                 <configuration>
                     <includes>
-                        <include>${project.basedir}/test_mymodule.py</include>
+                        <include>${project.basedir}/test/</include>
                     </includes>
                 </configuration>
             </plugin>
