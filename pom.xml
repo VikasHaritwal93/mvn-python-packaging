@@ -29,7 +29,7 @@ SOFTWARE.
   <artifactId>python-in-build</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
-    <python.exec>/usr/local/bin/python3</python.exec>
+    <python.exec>/usr/bin/python</python.exec>
   </properties>
   <build>
     <pluginManagement>
