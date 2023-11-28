@@ -105,6 +105,10 @@ SOFTWARE.
 		<groupId>org.jacoco</groupId>
 		<artifactId>jacoco-maven-plugin</artifactId>
 		<version>0.8.2</version>
+         <configuration>
+        <destfile>${project.artifactId}/target/jacoco.exec</destfile>
+        <datafile>${project.artifactId}/target/jacoco.exec</datafile>
+    </configuration>
 		<executions>
 			<execution>
 				<goals>
