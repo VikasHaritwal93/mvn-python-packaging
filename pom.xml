@@ -97,12 +97,6 @@ SOFTWARE.
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- Add pytest as a test dependency -->
-        <dependency>
-            <groupId>com.github.pycontribs</groupId>
-            <artifactId>pytest</artifactId>
-            
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
 </project>
