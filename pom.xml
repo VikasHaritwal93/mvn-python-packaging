@@ -1,8 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<!--
+	<!--
 Copyright 2020 Sean Busbey
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -23,41 +24,40 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-  <modelVersion>4.0.0</modelVersion>
- 
-  <groupId>com.manvsbeard.example</groupId>
-  <artifactId>python-in-build</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <properties>
-    <python.exec>/usr/bin/python</python.exec>
-  </properties>
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>1.6.0</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>generate some helper classes</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>${python.exec}</executable>
-              <!-- If you need network resources then set this to true -->
-              <requiresOnline>false</requiresOnline>
-              <arguments>
-                <!--
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.manvsbeard.example</groupId>
+	<artifactId>python-in-build</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<properties>
+		<python.exec>/usr/bin/python</python.exec>
+	</properties>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.6.0</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate some helper classes</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${python.exec}</executable>
+							<!-- If you need network resources then set this to true -->
+							<requiresOnline>false</requiresOnline>
+							<arguments>
+								<!--
                      Alternatively, you can pass the python script directly
                      as the "executable" and then rely on a #! line for python.
 
@@ -65,77 +65,75 @@ SOFTWARE.
                      output of the build, so it shouldn't be in
                      src/main/resources or src/main/scripts
                   -->
-                <argument>${project.basedir}/example.py</argument>
-                <argument>--long=foo</argument>
-                <argument>-f</argument>
-                <argument>positional</argument>
-                <argument>as if you had quoting</argument>
-                <argument>${project.version}</argument>
-                <argument>${project.build.directory}/generated-sources/java</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-                    <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <id>run-python-tests</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>python</executable>
-                            <workingDirectory>${project.basedir}</workingDirectory>
-                            <arguments>
-                                <argument>-m</argument>
-                                <argument>pytest</argument>
-                                <argument>--junitxml=target/surefire-reports/pytest-report.xml</argument>
-                                <argument>${project.basedir}/src/test/python/test_calculator.py</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-	<plugin>
-		<groupId>org.jacoco</groupId>
-		<artifactId>jacoco-maven-plugin</artifactId>
-		<version>0.8.2</version>
-         <configuration>
-        <destfile>${project.artifactId}/target/jacoco.exec</destfile>
-        <datafile>${project.artifactId}/target/jacoco.exec</datafile>
-    </configuration>
-		<executions>
-			<execution>
-				<goals>
-					<goal>prepare-agent</goal>
-				</goals>
-			</execution>
-			<!-- attached to Maven test phase -->
-			<execution>
-				<id>report</id>
-				<phase>test</phase>
-				<goals>
-					<goal>report</goal>
-				</goals>
-			</execution>
-		</executions>
-	</plugin>
-
-    </plugins>
-  </build>
-      <dependencies>
-        <!-- Add JUnit as a test dependency -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
+								<argument>${project.basedir}/example.py</argument>
+								<argument>--long=foo</argument>
+								<argument>-f</argument>
+								<argument>positional</argument>
+								<argument>as if you had quoting</argument>
+								<argument>${project.version}</argument>
+								<argument>${project.build.directory}/generated-sources/java</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>run-python-tests</id>
+						<phase>test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>python</executable>
+							<workingDirectory>${project.basedir}</workingDirectory>
+							<arguments>
+								<argument>-m</argument>
+								<argument>pytest</argument>
+								<argument>--junitxml=target/surefire-reports/pytest-report.xml</argument>
+								<argument>${project.basedir}/src/test/python/test_calculator.py</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<configuration>
+					<destfile>${project.artifactId}/target/jacoco.exec</destfile>
+					<datafile>${project.artifactId}/target/jacoco.exec</datafile>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<!-- attached to Maven test phase -->
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<!-- Add JUnit as a test dependency -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.7.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>
