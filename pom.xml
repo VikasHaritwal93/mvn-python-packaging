@@ -83,6 +83,24 @@ SOFTWARE.
 				<version>3.0.0</version>
 				<executions>
 					<execution>
+				            <id>install-python-dependencies</id>
+				            <phase>initialize</phase>
+				            <goals>
+				                <goal>exec</goal>
+				            </goals>
+				            <configuration>
+				                <executable>python</executable>
+						<workingDirectory>${project.basedir}</workingDirectory>
+				                <arguments>
+				                    <argument>-m</argument>
+				                    <argument>pip</argument>
+				                    <argument>install</argument>
+				                    <argument>-r</argument>
+				                    <argument>requirements.txt</argument>
+				                </arguments>
+				            </configuration>
+				        </execution>
+					<execution>
 						<id>run-python-tests</id>
 						<phase>test</phase>
 						<goals>
