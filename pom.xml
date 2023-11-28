@@ -140,7 +140,7 @@ python installed, if they don't need python bindings.
             <goals>
               <goal>exec</goal>
             </goals>
-            <configuration>
+<!--             <configuration>
               <executable>protoc</executable>
               <workingDirectory>${basedir}</workingDirectory>
               <arguments>
@@ -149,7 +149,7 @@ python installed, if they don't need python bindings.
                 <argument>--python_out=${project.build.directory}/generated-sources/python/${python_package}</argument>
                 <argument>${basedir}/src/main/resources/*.proto</argument>
               </arguments>
-            </configuration>
+            </configuration> -->
           </execution>
           <execution>
             <id>generate-package</id>
