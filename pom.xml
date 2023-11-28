@@ -65,7 +65,7 @@ SOFTWARE.
                      output of the build, so it shouldn't be in
                      src/main/resources or src/main/scripts
                   -->
-                <argument>${project.basedir}/src/main/python/example.py</argument>
+                <argument>${project.basedir}/example.py</argument>
                 <argument>--long=foo</argument>
                 <argument>-f</argument>
                 <argument>positional</argument>
