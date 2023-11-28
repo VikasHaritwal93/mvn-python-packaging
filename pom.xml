@@ -101,7 +101,7 @@ SOFTWARE.
         <dependency>
             <groupId>com.github.pycontribs</groupId>
             <artifactId>pytest</artifactId>
-            <version>6.2.5</version>
+            
             <scope>test</scope>
         </dependency>
     </dependencies>
