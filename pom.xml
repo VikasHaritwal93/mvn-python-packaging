@@ -103,6 +103,9 @@ SOFTWARE.
                             <executable>python</executable>
                             <workingDirectory>${project.basedir}</workingDirectory>
                             <arguments>
+                                <argument>-m</argument>
+                                <argument>pytest</argument>
+                                <argument>--junitxml=target/surefire-reports/pytest-report.xml</argument>
                                 <argument>${project.basedir}/src/test/python/test_calculator.py</argument>
                             </arguments>
                         </configuration>
