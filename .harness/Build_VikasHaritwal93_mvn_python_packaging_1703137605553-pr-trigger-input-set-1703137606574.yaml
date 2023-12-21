@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_VikasHaritwal93_mvn_python_packaging_1703137605553-pr-trigger-input-set
+  identifier: Build_VikasHaritwal93_mvn_python_packaging_1703137605553prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: autogen
+  pipeline:
+    identifier: Build_VikasHaritwal93_mvn_python_packaging_1703137605553
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
