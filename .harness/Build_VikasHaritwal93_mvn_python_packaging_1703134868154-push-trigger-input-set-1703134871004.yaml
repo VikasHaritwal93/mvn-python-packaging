@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_VikasHaritwal93_mvn_python_packaging_1703134868154-push-trigger-input-set
+  identifier: Build_VikasHaritwal93_mvn_python_packaging_1703134868154pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: autogen
+  pipeline:
+    identifier: Build_VikasHaritwal93_mvn_python_packaging_1703134868154
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
